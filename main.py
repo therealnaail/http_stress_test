@@ -27,11 +27,15 @@ by the use of this program.
 *******************************************************
 """)
 
+# Prompt user for delay time
+delay_time = int(input("Enter delay time (seconds) between requests: "))
+
 # Sends requests and times the execution
 start_time = time.time()
 for i in range(num_requests):
     response = requests.get(target_url, headers=headers)
     print("Request #%d: %d" % (i+1, response.status_code))
+    time.sleep(delay_time)  # Adds delay between each request 
 end_time = time.time()
 
 # Calculates and prints total time and requests per second
